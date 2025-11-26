@@ -1,0 +1,21 @@
+[project]
+name = "url-shortener"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Powar",email = "pshsafonov@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi (>=0.122.0,<0.123.0)",
+    "pydantic (>=2.12.4,<3.0.0)",
+    "sqlalchemy (>=2.0.44,<3.0.0)",
+    "pydantic-settings (>=2.12.0,<3.0.0)",
+    "uvicorn (>=0.38.0,<0.39.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
