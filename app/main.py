@@ -9,18 +9,15 @@ async def lifespan(app: FastAPI):
     await db_engine.create_tables()
     yield
 
-app = FastAPI()
+app = FastAPI(lifespan=lifespan)
 
 
 @app.post("/short_url")
 async def generate_slug(
-    long_url: str = Body(enbed=True)
+    long_url: str = Body(embed=True)
 ):
     try:
         new_slug = await create_new_slug(long_url)
-    except Exception:
-        raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail="Не удалось сгенерировать slug",
-        )
+    except Exception as s:
+        raise s
     return {"data": new_slug}
