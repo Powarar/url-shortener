@@ -12,7 +12,7 @@ log = logging.getLogger(__name__)
 class PostgresEngine:
     def __init__(self):
         self.engine = create_async_engine( 
-            echo=True,
+            echo=False,
             url=f'postgresql+asyncpg://{settings.POSTGRES_USER}:{settings.POSTGRES_PASSWORD}@'
                 f'{settings.POSTGRES_HOST}:{settings.POSTGRES_PORT}/{settings.POSTGRES_DB}',
         )
