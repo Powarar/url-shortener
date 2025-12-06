@@ -8,7 +8,7 @@ class Settings(BaseSettings):
     POSTGRES_PASSWORD: str 
 
     class Config:
-        env_file = ".env"
+        env_file = ".env.local"
         env_file_encoding = "utf-8"
 
 settings = Settings()

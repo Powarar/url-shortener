@@ -12,7 +12,7 @@ from app.exceptions.errors import SlugAlreadyExistsError, NoLongUrlFoundError
 
 async def create_new_slug(long_url: Link) -> str:
     slug = generate_slug()
-    url_str = str(long_url) 
+    url_str = str(long_url.link)
     
     stmt = insert(Urls).values(slug=slug, url=url_str).returning(Urls.slug)
     
@@ -27,7 +27,7 @@ async def create_new_slug(long_url: Link) -> str:
 async def get_link_by_slug(slug: str) -> str:
     stmt = select(Urls.url).where(Urls.slug == slug)
     long_url = await db_engine.execute(stmt)
-    
+
     if not long_url:
         raise NoLongUrlFoundError(slug)
         

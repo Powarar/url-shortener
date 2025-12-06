@@ -6,14 +6,12 @@ from app.engines.postgres_engine import db_engine
 from app.repository.urls import create_new_slug, get_link_by_slug
 from app.schemas.links import Link
 
-# импортируем сами функции обработчиков
 from app.exceptions.exceptions_handlers import (
     not_found_handler,
     conflict_handler,
     global_exception_handler
 )
 
-# импортируем кастомные ошибки
 from app.exceptions.errors import NoLongUrlFoundError, SlugAlreadyExistsError
 
 

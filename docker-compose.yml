@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:16
+    container_name: postgres_db
+    restart: always
+    env_file:
+      - .env.docker
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  app:
+    build: 
+      context: .
+      dockerfile: app/Dockerfile
+    container_name: fastapi_app
+    depends_on:
+      - db
+    restart: always
+    env_file:
+      - .env.docker
+    ports:
+      - "8000:8000"
+
+volumes:
+  postgres_data:
