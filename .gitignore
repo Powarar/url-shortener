@@ -1,2 +1,45 @@
-.env.docker
-.env.local
+# Byte-code files
+*.pyc
+__pycache__
+
+# Virtual environment
+.venv/
+venv/
+env/
+/site/
+
+# Editor/IDE specific files
+.vscode/
+.idea/
+*.swp
+*.bak
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs and temporary files
+*.log
+*.tmp
+temp/
+tmp/
+
+# Database files (if local SQLite, for example)
+*.sqlite3
+*.db
+
+# Environment variables and configuration
+.env
+.env.*
+config.ini
+config.local.ini
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# Test reports/coverage
+.coverage
+htmlcov/
+.pytest_cache/
